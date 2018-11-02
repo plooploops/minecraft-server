@@ -4,7 +4,7 @@
 ARG VARIANT=nanoserver
 
 # base tag used for the powershell image, ex: nanoserver-1709, nanoserver-1803, etc
-ARG POWERSHELL_BASETAG=nanoserver
+ARG POWERSHELL_BASETAG=nanoserver-1709
 
 #================================================
 
@@ -80,7 +80,7 @@ VOLUME ["C:\\data","C:\\mods","C:\\config","C:\\plugins","C:\\users\\minecraft"]
 
 WORKDIR C:\data
 
-ENTRYPOINT [ "pwsh", "-File", "C:\\minecraft\\start.ps1" ]
+#to get the folder set up correctly
 
 ENV UID=1000 `
     GID=1000 `
@@ -103,4 +103,6 @@ ENV UID=1000 `
     ONLINE_MODE=TRUE `
     CONSOLE=true
 
-USER ContainerUser
+ENTRYPOINT [ "pwsh", "-File", "C:\\minecraft\\start.ps1" ]
+
+#USER ContainerUser

@@ -1,10 +1,12 @@
 $ErrorActionPreference = 'Stop';
 $ProgressPreference = 'SilentlyContinue';
 
-if (!(Test-Path -Path minecraft)) {
-  mkdir minecraft
+ls
+if (!(Test-Path -Path C:\minecraft)) {
+  ls $pwd
+  mkdir C:\minecraft
 }
-cd minecraft
+cd C:\minecraft
 
 if (!(Test-Path -Path "$pwd\eula.txt")) {
   if ($Env:EULA -eq 'TRUE') {
